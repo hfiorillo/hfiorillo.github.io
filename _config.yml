@@ -10,7 +10,7 @@
 # Review documentation to determine if you should use `theme` or `remote_theme`
 # https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/#installing-the-theme
 
-theme                  : minimal-mistakes-jekyll
+# theme                  : minimal-mistakes-jekyll
 remote_theme           : mmistakes/minimal-mistakes
 minimal_mistakes_skin    : "neon" # "air", "aqua", "contrast"ßßßßßß "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
@@ -20,8 +20,8 @@ title                    : "Harry Fiorillo-Hughes"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Harry Fiorillo-Hughes"
-description              : "Blog space for interest, projects and things..."
-url                      : https://https://hfiorillo.github.io/ # e.g. "https://mmistakes.github.io"
+description              : "Blogspace for my interests, projects and things..."
+url                      : https://hfiorillo.github.io/ # e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : hfiorillo/hfiorillo.github.io
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
@@ -95,7 +95,7 @@ analytics:
 author:
   name             : "Harry Fiorillo-Hughes"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I try my best"
+  bio              : "Fad lover"
   location         : "Manchester, England"
   email            : harryhughes13@gmail.com
   links:
