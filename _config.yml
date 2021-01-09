@@ -12,7 +12,7 @@
 
 theme                  : minimal-mistakes-jekyll
 remote_theme           : mmistakes/minimal-mistakes
-minimal_mistakes_skin    : "default" # "air", "aqua", "contrast"ßßßßßß "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "neon" # "air", "aqua", "contrast"ßßßßßß "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-GB"
@@ -21,9 +21,9 @@ title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Harry Fiorillo-Hughes"
 description              : "Blog space for interest, projects and things..."
-url                      : https://github.com/hfiorillo/hfiorillo.github.io # e.g. "https://mmistakes.github.io"
+url                      : https://https://hfiorillo.github.io/ # e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : hfiorillo/hfiorillo.github.io e.g. "mmistakes/minimal-mistakes"
+repository               : hfiorillo/hfiorillo.github.io
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
@@ -95,8 +95,8 @@ analytics:
 author:
   name             : "Harry Fiorillo-Hughes"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **amazing** person."
-  location         : "Somewhere"
+  bio              : "I try my best"
+  location         : "Manchester, England"
   email            :
   links:
     - label: "Email"
@@ -117,6 +117,9 @@ author:
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       # url: "https://instagram.com/"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/harrison-w-hughes"
 
 # Site Footer
 footer:
