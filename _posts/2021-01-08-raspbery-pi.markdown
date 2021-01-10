@@ -70,5 +70,7 @@ I have a number of projects in mind for the Raspberry Pi so keep your eyes peele
 - Managing Docker containers using Docker Swarm
 - Turn the Pi into a portable Ethical Hacking machine using Kali Linux
 - Building a LAMP Server with Wordpress
-- Add a camera module and create a Machine Learning object tracker using Tensor Flow
-- Block all online ads using Pi-Hole
+- Add a camera module and create a Machine Learning object detector using Tensor Flow
+- Blocking all online ads using Pi-Hole
+
+To name a few!
