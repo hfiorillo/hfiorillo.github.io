@@ -14,8 +14,6 @@ published: true
 ---
 A brief introduction to the Raspberrry Pi foundation and their single board computers.
 
-A brief introduction to the Raspberry Pi Foundation and their latest single board computer.
-
 **What is Raspberry Pi?**
 
 The Rapsberry Pi foundation is a educational charity founded by [Eben Upton](https://en.wikipedia.org/wiki/Eben_Upton) in 2008. Its humble roots began as a means of inpsiring young children in an approachable, yet practical manner, to turn to 'computers' in the hopes that this generation will pursue studying computer science related subjects in further education thus filling the large skills gap at the time. The foundation produces low cost single-board comptuers (a complete computer built on a single circuit board) and has had many iterations since the first release in 2012. After the intial release of the Raspberry Pi the foundation had huge [success](https://www.theguardian.com/technology/2015/feb/18/raspberry-pi-becomes-best-selling-british-computer), the product sold out and had an amazing [community](https://www.raspberrypi.org/community/) response. The Pi foundation has gone above and beyond what it ever set out to do, now at the forefront of a huge [global movement](https://www.raspberrypi.org/stories/) helping young people all over the world learn about computing. Code Club and CoderDojo are part of the foundation althought these programs are separate from the Raspberry Pi hardware, these are clubs aim to ensure every child has the opportunity to access learning about computing.
