@@ -3,10 +3,9 @@ layout: single
 title: About me
 permalink: /about/
 ---
-I currently work as a CSOC Analyst. I'm passionate about security and interested in Dev Ops.
+Currently working as a CSOC Analyst. I'm interested in both Security and Dev Ops. This blog aims to share those interests with people and further develop knowledge on subject matters in a engaging manner.
 
 ### Contact
-Harrison Fiorillo-Hughes
 harryhughes13@gmail.com
 
 Drop me a message!
