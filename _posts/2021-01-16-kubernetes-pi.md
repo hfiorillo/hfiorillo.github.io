@@ -248,4 +248,4 @@ Congratulations - you're now all set up!
 
 If you run `kubectl get pods —all-namespaces`. You will see all of the pods automatically deployed by k3s. Rancher has chosen to automatically include [Traefik](https://traefik.io/), a reverse proxy and load balancer that we can use to direct traffic into our cluster from a single entry point. In future posts, I will be exploring the use of Traefik on Kubernetes through [ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) rules. For now, we can power our cluster down using Ansible  `ansible all -i inventory/hosts.ini -a "shutdown now" -b`.
 
-Look forward to the next post, where I will be discussing the importance of monitoring your cluster and walk through deploying a monitoring stack on the k3s cluster we have just created. Stay tuned!
+Look forward to the next post, where I will be discussing the importance of monitoring your cluster and I'll walk through deploying a monitoring stack on the k3s cluster we have just created. Stay tuned!
