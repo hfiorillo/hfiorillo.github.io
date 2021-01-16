@@ -22,7 +22,7 @@ Building a Raspberry Pi cluster and deploying Kubernetes onto it.
 
 The importance of incessant learning within DevOps is paramount. The continious integration and delivery of new services, alongside the rapid evolution of the industry means it can be easy to quickly fall out of touch with new tools. Building a home lab is often cited as the best way to experiment and learn, hands on, about some of the latest technologies and computing practices that are being deployed in the cloud space. It gives you the opportunity to understand the infrastructure and processes behind a lot of the applications and services that are being run in the cloud. However, home labs do often come with a hefty price tag. With the recent developments in ARM CPUs and increasing amounts of ARM friendly distributions it meant that, for me, a [Raspberry Pi](https://hfiorillo.github.io/raspberrypi/raspbery-pi/) cluster was the perfect segway into building my own home lab.
 
-Inspiration for this blog post from [Jeff Geerling](https://www.jeffgeerling.com/blog) & [Alex Ellis](https://blog.alexellis.io/tag/raspberry-pi/). I highly recommend you check out their blogs on all things Raspberry Pi.
+Inspiration for this blog post came from [Jeff Geerling](https://www.jeffgeerling.com/blog) & [Alex Ellis](https://blog.alexellis.io/tag/raspberry-pi/). I highly recommend you check out their blogs on all things Raspberry Pi.
 
 ## Why build a cluster?
 
@@ -42,7 +42,7 @@ It is an open source container orchestration platform that automates many of the
 
 Independently managing each node in the cluster is hard work, and we don't like hard work. Kubernetes is our solution. We need software that makes it easier to run applications on the cluster; without needing to login to each Pi separately and manually running the processes ourselves. Kubernetes is installed across all of the nodes in the cluster, creating a *software defined cluster*. Where a pool of nodes known as '*agents'* (our Raspberry Pi's) are managed by a '*master*' node and application workloads are orchestrated between all these nodes. 
 
-Put simply: The idea behind a Kubernetes cluster is that although a singular node may be able to carry out a task relatively quickly, what happens if that node fails and what if you want to scale that node quickly and easily? Kubernetes allows the adding of multiple nodes which all work in parallel to carry out the specified task quicker than any single node ever could, in a way that is fault tolerant and scalable.
+Put simply: The idea behind a Kubernetes cluster is that although a singular node may be able to carry out a task relatively quickly, what happens if that node fails? What happens if the load becomes too large for a singular node to handle and you want to horizontally scale? Using Kubernetes allows you to scale with ease from the command line whilst it also handles the management of a cluster; assigning out a particular task for all the nodes to work on in parallel. Allowing for the task to be carried out far more effectively than any single node could, and if one of them fails? The exisiting nodes will carry its burden.
 
 **Distributions** 
 
