@@ -184,7 +184,7 @@ emperor - for master node
 
 worker# - for worker nodes
 
-> **I would also advise changing your Pi default password to avoid any unwelcome visitors. Take a look at [this](https://null-byte.wonderhowto.com/how-to/discover-attack-raspberry-pis-using-default-credentials-with-rpi-hunter-0193855/) program built especially for exploiting default credentials on Raspberry Pi's**
+> **I would also advise changing your Pi default password to avoid any unwelcome visitors. Take a look at [this](https://null-byte.wonderhowto.com/how-to/discover-attack-raspberry-pis-using-default-credentials-with-rpi-hunter-0193855/) program built especially for exploiting default credentials on Raspberry Pi's.**
 
 ```bash
 sudo nano /etc/hostname # to change hostname
