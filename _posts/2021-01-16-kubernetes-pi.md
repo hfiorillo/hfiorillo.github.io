@@ -209,7 +209,7 @@ Next, Git clone the repository for [k3s-ansible](https://github.com/k3s-io/k3s-a
 ```bash
 git clone https://github.com/k3s-io/k3s-ansible
 cd k3s-ansible
-cp -R inventory/sample inventory/my-cluster # copies the investory directory from sample
+cp -R inventory/sample inventory/my-cluster # copies the inventory directory from sample
 ```
 
 Open up the repository in a text editor and edit the Ansible inventory `hosts.ini` file to include the IP address of your 'master' and 'worker' nodes.
