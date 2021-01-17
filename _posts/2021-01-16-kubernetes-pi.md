@@ -16,7 +16,9 @@ published: true
 
 ---
 
-An introduction to Kubernetes and how to deploy it on a Raspberry Pi cluster.
+A how-to on deploying Kubernetes using k3s to a Raspberry Pi cluster.
+
+# Kubernetes on Raspberry Pi
 
 Building a home lab is often cited as the best way to experiment and learn, hands on, about some of the latest technologies and computing practices that are being deployed in the cloud space. A home lab being an environment in your own home where you can experiment safely, outside of work, by engaging in personal projects, education and maintain a fun hobby. It gives you the opportunity to understand the infrastructure and processes behind a lot of the applications and services that are being run in the cloud. However, home labs do often come with a hefty price tag. Having recently purchased a Rapsberry Pi 4B, the possibility of building a small scale homelab out of these small, ARM powered, single-board computers perked my interest. After reading numerous community posts about how you can effectively cluster a number of Raspberry Pi's together and manage them using Kubernetes, I found my perfect segue into building a Homelab.
 
