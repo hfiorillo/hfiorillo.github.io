@@ -1,5 +1,5 @@
 ---
-title:  "Kubernetes Pi"
+title:  "Kubernetes Pi: k3s and Ansible"
 date:   2020-01-16 00:00:00 +0000
 categories: raspberrypi
 tags:
@@ -16,7 +16,7 @@ published: true
 
 ---
 
-A how-to on deploying Kubernetes using k3s to a Raspberry Pi cluster.
+A how-to on deploying Kubernetes using k3s and Ansible to a Raspberry Pi cluster.
 
 # Kubernetes on Raspberry Pi
 
