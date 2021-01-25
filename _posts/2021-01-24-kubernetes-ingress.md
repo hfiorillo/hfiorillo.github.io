@@ -41,13 +41,13 @@ spec:
           - path: /foo
             backend:
               serviceName: foo-service
-							servicePort: 80
-		- http:
-				paths:
-				   - path: /bar
-				     backend:
-							serviceName: bar-service
-							servicePort: 80
+              servicePort: 80
+    - http:
+        paths:
+          - path: /bar
+            backend:
+              serviceName: bar-service
+              servicePort: 80
 ```
 
 ### Ingress Controllers
