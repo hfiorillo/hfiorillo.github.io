@@ -16,7 +16,7 @@ published: true
 
 ---
 
-A brief explanation of Kubernetes Ingress.
+A brief explanation of Kubernetes Ingress and demo on k3s.
 
 This blog post is one in a series of posts about my experiences of deploying kubernetes to a Raspberry Pi cluster, if you haven't seen the others i'd advise checking them out [here](http://hfiorillo.github.io/). Today's blog, is more of a precursor to what is coming next.
 
