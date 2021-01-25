@@ -72,4 +72,110 @@ The choice of ingress controller for my cluster is Traefik, this comes as defaul
 
 ![https://traefik.io/traefik/#:~:text=Traefik is a leading modern,that makes deploying microservices easy.&text=It also comes with a,west service communication and more](/assets/images/Kubernetes/diagram.png).
 
-Short and sweet today. I did attempt to expose the Traefik dashboard using ingress as an example but really struggled using the version of k3s I have deployed on my Pi's, perhaps I'll give it a whirl in the future and update this article then. I'll be back next week discussing all things monitoring and walk through how to deploy a monitoring stack of your own.
+# Ingress Demo
+
+## Pre-requisites
+- Ensure you have followed the previous blog ;)
+- You have k3s running on your Kubernetes cluster
+
+## Viewing the Traefik Dashboard
+
+So we can begin by checking our nodes are up and running `kubectl get nodes` and your output should look something like this:
+
+![kubectl get nodes](/assets/images/Kubernetes/ingress-post/getnodes.png)
+
+Lets take a look at what is running on our k3s cluster `kubectl -n kube-system get all`
+
+![kubectl get all](/assets/images/Kubernetes/ingress-post/getall1.png)
+
+Everything is running fine (ignore kubernetes-dashboard in CrashLoopBackOff 😉 ) and you can see that there is already a pod created containing Traefik. 
+
+In k3s the Traefik web UI dashboard is disabled due to its lightweight nature. We can enable this dashboard by editing the config map for Traefik.
+
+Lets see what the config map is called for Traefik by running `kubectl -n kube-system describe deploy traefik` to show the Traefik deployment:
+
+![kubectl describe traefik](/assets/images/Kubernetes/ingress-post/describetraefik.png)
+
+Under volumes, we can see the ConfigMap and it's name is traefik. Another way we can view the config map is by running `kubectl -n kube-system get cm` 
+
+![kubectl get cm](/assets/images/Kubernetes/ingress-post/getcm.png)
+
+Okay so we know the config map name and that the Traefik dashboard is not enabled on the k3s by default. We can enable it by editing the config map to include the dashbaord. First lets run `kubectl -n kube-system edit cm traefik` to begin editing, this should bring up the following output. 
+
+However, yours will not contain the `[api]` + `dashboard = true` you will need to enter this into the config map in the same way as I have done here and then save + exit.
+
+![edit configmap](/assets/images/Kubernetes/ingress-post/editcm.png)
+
+After you're done editing, the old pod will still be running based off the old config map. We need to reploy the traefik pod with the new config map, lets do this by running `kubectl -n kube-system scale deploy traefik --replicas 0` then we can see that the pod is terminating.
+
+![deploy0]/assets/images/Kubernetes/ingress-post/deploy0.png)
+
+Then lets recreate the pod with the new config map by running `kubectl -n kube-system scale deploy traefik --replicas 1` and allow a minute or two to finish up creating the pod.
+
+![deploy1](/assets/images/Kubernetes/ingress-post/deploy1.png)
+
+Now, to view the Traefik dashboard we will need to use port forwarding on the traefik pod to view it locally on our own device. Open a new tab on your shell and run the following `kubectl -n kube-system port-forward deployment/traefik 8080` whilst this contiues to port forward, opening up `[localhost:8080](http://localhost:8080)` in your browser should return the Traefik dashboard:
+
+![traefik dashboard](/assets/images/Kubernetes/ingress-post/traefikdash.png)
+
+Here, we can see that there are no front ends or backends as we don't currently have an Ingress set up.
+
+## Setting up an Ingress
+
+Let's deploy a sample `nginx` web application as an example Ingress exposure.
+
+First lets create the web application in our cluster and grab the nginx image:
+
+`kubectl create deploy nginx --image nginx`
+
+![nginx](/assets/images/Kubernetes/ingress-post/deploynginx.png)
+
+Now we can expose the nginx deployment using a service, in this case we can use ClusterIP as the service type and on port 80 `kubectl expose deploy nginx --port 80`
+
+We can check the service by running `kubectl get svc` this will return the following.
+
+![expose nginx](/assets/images/Kubernetes/ingress-post/exposenginx.png)
+
+Here we have exposed the nginx service using ClusterIP with the corresponding IP on port 80 BUT this is still only accessible from within the cluster so we cannot access this externally. You can now create the ingress YAML manifest (or you can use the one below):
+
+```yaml
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: nginx
+  annotations:
+    ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /
+            backend:
+              serviceName: nginx
+              servicePort: 80
+```
+
+I saved mine within a folder called `example` and named it `ingress.yaml`
+
+Next let's create the ingress `kubectl create -f example/ingress.yaml` and we can see the ingress creation by running `kubectl describe ing nginx`. 
+
+![describe nginx](/assets/images/Kubernetes/ingress-post/describenginx.png)
+
+We can also see on the Traefik dashboard that an Ingress rule has been created.
+
+![traefikdash](/assets/images/Kubernetes/ingress-post/traefiking.png)
+
+Now we have created the ingress service we should be able to access it, we can confirm that this has been exposed by heading to the IP of any of our nodes on our browser. Here they should display the nginx Welcome Page. 
+
+![nginxwec](/assets/images/Kubernetes/ingress-post/nginxwelc.png)
+
+**Congratulations, you have deployed your ingress resource successfully!**
+
+This explanation and ingress demo walkthrough would not have been made possible if not for the following amazing people:
+
+- [Jeff Geerling](https://www.youtube.com/results?search_query=jeff+geerling)
+- [Carpie.net](https://www.youtube.com/channel/UChamuOqlsaTWa96CDVBbElQ)
+- [Alex Ellis](https://www.youtube.com/channel/UCJsK5Zbq0dyFZUBtMTHzxjQ)
+- [Just me and Opensource](https://www.youtube.com/channel/UC6VkhPuCCwR_kG0GExjoozg)
+
+I'll be back next week discussing all things monitoring and walk you through how to deploy a monitoring stack of your own.
