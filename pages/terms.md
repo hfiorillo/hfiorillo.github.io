@@ -1,7 +1,6 @@
 ---
 permalink: /terms/
 title: "Terms and Privacy Policy"
-classes: wide
 toc: true
 ---
 

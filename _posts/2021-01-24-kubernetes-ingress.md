@@ -33,7 +33,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: example-ingress
-	namepsace: default
+  namepsace: default
 spec:
   rules:
     - http:
@@ -52,7 +52,7 @@ spec:
 
 ### Ingress Controllers
 
-The ingress manifest alone is useless, it requires an Ingress Controller which looks at the manifest and acts upon it by dynamically configuring itself based on the YAML objects defined in the resource. Ingress controllers are pods, so they're part of the cluster, and so they can see all the other pods. They are constructed using [reverse proxies](https://en.wikipedia.org/wiki/Reverse_proxy) which give it [Layer 7 routing](https://rancher.com/docs/rancher/v2.x/en/k8s-in-rancher/load-balancers-and-ingress/load-balancers/) and load balancing capabilities. Ingress controllers still require them to be exposed externally via a type of either NodePort or LoadBalancer but now there is a single entry point of traffic. As the Ingress Controller is implemented at level 7 it is able to terminate HTTPS, allowing it to distinguish each websites traffic as it understands url names and paths, therefore knowing which backend server to forward traffic to. In the example manifest above, you set up the services for your pods but don't assign them a type field - routing and load balancing is handled by the Ingress layer. The two paths of /foo and /bar are served by a common IP and domain name. Essentially an [API Gateway Pattern](https://learnk8s.io/kubernetes-ingress-api-gateway). Once installed, Ingress Controllers do all the work in the background, defining Ingress manifests for the controller will be extent of your troubles. 
+The ingress manifest alone is useless, it requires an Ingress Controller which looks at the manifest and acts upon it by dynamically configuring itself based on the YAML objects defined in the resource. Ingress controllers are pods, so they're part of the cluster, and so they can see all the other pods. They are constructed using [reverse proxies](https://en.wikipedia.org/wiki/Reverse_proxy) which give it [Layer 7 routing](https://rancher.com/docs/rancher/v2.x/en/k8s-in-rancher/load-balancers-and-ingress/load-balancers/) and load balancing capabilities. Ingress controllers still require them to be exposed externally via a type of either NodePort or LoadBalancer but now there is a single entry point of traffic. As the Ingress Controller is implemented at level 7 it is able to terminate HTTPS, allowing it to distinguish each websites traffic as it understands url names and paths, therefore knowing which backend server to forward traffic to. In the example manifest above, you set up the services for your pods but don't assign them a type field - routing and load balancing is handled by the Ingress layer. The two paths of /foo and /bar are served by a common IP and domain name. Essentially an [API Gateway Pattern](https://learnk8s.io/kubernetes-ingress-api-gateway). Once installed, Ingress Controllers do all the work in the background, defining Ingress manifests for the controller will be extent of your troubles.
 
 A deep dive into ingress and ingress controllers can be found [here](https://oteemo.com/2019/10/28/ingress-101-what-is-kubernetes-ingress-why-does-it-exist/).
 
@@ -75,6 +75,7 @@ The choice of ingress controller for my cluster is Traefik, this comes as defaul
 # Ingress Demo
 
 ## Pre-requisites
+
 - Ensure you have followed the previous blog ;)
 - You have k3s running on your Kubernetes cluster
 
@@ -88,7 +89,7 @@ Lets take a look at what is running on our k3s cluster `kubectl -n kube-system g
 
 ![kubectl get all](/assets/images/Kubernetes/ingress-post/getall1.png)
 
-Everything is running fine (ignore kubernetes-dashboard in CrashLoopBackOff 😉 ) and you can see that there is already a pod created containing Traefik. 
+Everything is running fine (ignore kubernetes-dashboard in CrashLoopBackOff 😉 ) and you can see that there is already a pod created containing Traefik.
 
 In k3s the Traefik web UI dashboard is disabled due to its lightweight nature. We can enable this dashboard by editing the config map for Traefik.
 
@@ -96,11 +97,11 @@ Lets see what the config map is called for Traefik by running `kubectl -n kube-s
 
 ![kubectl describe traefik](/assets/images/Kubernetes/ingress-post/describetraefik.png)
 
-Under volumes, we can see the ConfigMap and it's name is traefik. Another way we can view the config map is by running `kubectl -n kube-system get cm` 
+Under volumes, we can see the ConfigMap and it's name is traefik. Another way we can view the config map is by running `kubectl -n kube-system get cm`
 
 ![kubectl get cm](/assets/images/Kubernetes/ingress-post/getcm.png)
 
-Okay so we know the config map name and that the Traefik dashboard is not enabled on the k3s by default. We can enable it by editing the config map to include the dashbaord. First lets run `kubectl -n kube-system edit cm traefik` to begin editing, this should bring up the following output. 
+Okay so we know the config map name and that the Traefik dashboard is not enabled on the k3s by default. We can enable it by editing the config map to include the dashbaord. First lets run `kubectl -n kube-system edit cm traefik` to begin editing, this should bring up the following output.
 
 However, yours will not contain the `[api]` + `dashboard = true` you will need to enter this into the config map in the same way as I have done here and then save + exit.
 
@@ -157,7 +158,7 @@ spec:
 
 I saved mine within a folder called `example` and named it `ingress.yaml`
 
-Next let's create the ingress `kubectl create -f example/ingress.yaml` and we can see the ingress creation by running `kubectl describe ing nginx`. 
+Next let's create the ingress `kubectl create -f example/ingress.yaml` and we can see the ingress creation by running `kubectl describe ing nginx`.
 
 ![describe nginx](/assets/images/Kubernetes/ingress-post/describenginx.png)
 
@@ -165,7 +166,7 @@ We can also see on the Traefik dashboard that an Ingress rule has been created.
 
 ![traefikdash](/assets/images/Kubernetes/ingress-post/traefiking.png)
 
-Now we have created the ingress service we should be able to access it, we can confirm that this has been exposed by heading to the IP of any of our nodes on our browser. Here they should display the nginx Welcome Page. 
+Now we have created the ingress service we should be able to access it, we can confirm that this has been exposed by heading to the IP of any of our nodes on our browser. Here they should display the nginx Welcome Page.
 
 ![nginxwec](/assets/images/Kubernetes/ingress-post/nginxwelc.png)
 
