@@ -57,7 +57,7 @@ Modern applications are broken down into various components are loogsely coupled
 
 Source: [https://divante.com/blog/monolithic-architecture-vs-microservices/](https://divante.com/blog/monolithic-architecture-vs-microservices/)
 
-As well as this, increasing amounts of contemporary application architecture involves building [stateless](https://medium.com/@xenonstack/stateful-and-stateless-microservices-application-solutions-f1fa38326f37) applications inside of Kubernetes clusters. Where applications will avoid storing any client session data on the serve. Any session data storage is handled on the client-side. Since no session data is stored on the server, there is also no need for any particular client connection to be favoured over another client connection. Therefore, the application will treat each connection as its first and can easily load balance across multiple instances. This enables horizontal scaling by deploying instances of the application on multiple servers and then distributing all incoming client requests amongst the available servers. 
+As well as this, increasing amounts of contemporary application architecture involves building [stateless](https://medium.com/@xenonstack/stateful-and-stateless-microservices-application-solutions-f1fa38326f37) applications inside of Kubernetes clusters. Where applications will avoid storing any client session data on the serve. Any session data storage is handled on the client-side. Since no session data is stored on the server, there is also no need for any particular client connection to be favoured over another client connection. Therefore, the application will treat each connection as its first and can easily load balance across multiple instances. This enables horizontal scaling by deploying instances of the application on multiple servers and then distributing all incoming client requests amongst the available servers.
 
 It clear then that a different approach needs to be taken with Kubernetes monitoring over the traditional approaches that were used in monolithic deployments.
 
@@ -121,7 +121,7 @@ Kubernetes deploys services according to scheduling policies, we don’t know wh
 
 The following can be used in conjuction with one another (we will be deploying these tools to our Raspberry Pi cluster in part 2):
 
-[Prometheus](https://prometheus.io/docs/introduction/overview/): One of the most [commonly deployed](https://www.weave.works/blog/prometheus-kubernetes-perfect-match/) metrics toolkits to a k8s clusters. The official monitoring server sponsored by CNCF. Some of its key features: 
+[Prometheus](https://prometheus.io/docs/introduction/overview/): One of the most [commonly deployed](https://www.weave.works/blog/prometheus-kubernetes-perfect-match/) metrics toolkits to a k8s clusters. The official monitoring server sponsored by CNCF. Some of its key features:
 
 - Server that scrapes metrics data from enabled applciations and is also the database that stores the time-series data obtained from the applications
 - PromQL is the Prometheus Query Lanugage used to query the database
