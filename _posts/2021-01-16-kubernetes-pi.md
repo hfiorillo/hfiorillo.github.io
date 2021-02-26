@@ -93,7 +93,7 @@ Total cost for my set up came to around £200, I used Raspberry Pi 4B - 1 x 4GB 
 
 Follow through the Raspberry Pi assembly process for your cluster case. If you have a network switch, connect up the Ethernet cables to your Raspberry Pi's. Connecting via ethenet allows any data-intensive applciations to exchange instruction without being hampered by wireless LAN or other network traffic, not essential but it is nice. and they should look a little something like this. 
 
-![Pi-Cluster](assets/images/Kubernetes/picluster.jpg)
+![Pi-Cluster](/assets/images/Kubernetes/picluster.jpg)
 
 ## Setting up the Operating System
 
