@@ -11,7 +11,7 @@ tags:
 classes: wide
 toc: true
 header: 
-    overlay_image: assets/images/Kubernetes/monitoring/monitoroverlay.png 
+    overlay_image: assets/images/your-first-api-request/microsoft-azure-blog-header.png
     overlay_filter: rgba(0, 0, 0, 0.4)
 published: true
 
