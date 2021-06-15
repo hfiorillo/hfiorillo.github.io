@@ -1,12 +1,12 @@
 ---
 layout: single
-title: About me
+title: About me 🦆
 permalink: /about/
 ---
-Currently working as a CSOC Analyst at ANS Group. I'm interested in both Cyber Security and DevOps. This blog aims to share those interests with people and further develop knowledge on subject matters in a engaging manner.
+A first-class Economics graduate who's followed their passion for computing and coding into the world of tech. Learning from the ground up. I'm Cloud certified in both AWS and Azure. I currently work as a Technical Analyst at ANS Group where I have developed a deep interest into DevOps.
 
-### Contact
+This blog aims to share those interests with people and further develop knowledge on a variety of subject matters in a engaging manner.
 
-harryhughes13@gmail.com
+## Contact
 
-Drop me a message!
+You can get in touch with me via my email address here: ``harryhughes13@gmail.com`` 

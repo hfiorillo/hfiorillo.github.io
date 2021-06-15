@@ -113,7 +113,7 @@ If you interested in the breakdown of the token you can paste it into here [http
 
 You have made your first API request! Well done. The returned response is in JSON Format, using this in conjuction with a script means you can generate all sorts of reports or filter out items with specific parameters and then make changes to them. The possibilities are endless.
 
-Other interesting articles on REST API's and the cloud
+Other interesting articles on REST API's and Public Cloud.
 
 - [https://aster.cloud/2019/09/25/how-to-call-azure-rest-apis/](https://aster.cloud/2019/09/25/how-to-call-azure-rest-apis/)
 - [https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/)
